@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin URI: http://gravatar.com
+ * Plugin Name: Simple Search Operators
  * Description: Adds support for a few basic search operators (author, tag, category) by intercepting and overriding core search queries.
  * Version: 0.1
  * Author: Beau Lebens
