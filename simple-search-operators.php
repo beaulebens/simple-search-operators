@@ -36,7 +36,7 @@ class Simple_Search_Operators {
 
   function parse_operators( $fulltext ) {
     // If it looks like any operators are present, let's process further
-    if ( preg_match( '/(author|tag|cat(egory)?|not):/i', $_REQUEST['s'], $matches ) ) {
+    if ( preg_match( '/(author|cat(egory)?|day|month|tag|year):/i', $_REQUEST['s'], $matches ) ) {
       $operators = array( 's' => '' );
 
       // Process each "word", looking for supported operators
@@ -54,7 +54,14 @@ class Simple_Search_Operators {
           $operators[ 'category_name' ] = $bits[1];
           break;
 
+        case 'month':
+          $operators[ 'monthnum' ] = $bits[1];
+          break;
+
+        // No rename necessary
+        case 'day':
         case 'tag':
+        case 'year':
           $operators[ $bits[0] ] = $bits[1];
           break;
 
